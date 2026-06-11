@@ -15,7 +15,6 @@
 <meta property="og:image" content="https://thilahomamrameshwaram.org/assets/img/home/thillai-homam.jpg">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<!-- ════ SCHEMA 1: LocalBusiness + ReligiousOrganization ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -136,7 +135,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 2: Person — Manoj Shastrigal E-E-A-T signal ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,7 +165,6 @@
   }
 }
 </script>
-<!-- ════ SCHEMA 3: FAQPage — 9 Q&As for Google AI Overviews, ChatGPT, Perplexity ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -249,7 +246,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 4: WebSite — enables Sitelinks Searchbox & AI knowledge graph ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -271,7 +267,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 5: BreadcrumbList — helps AI map site structure ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -287,7 +282,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 6: HowTo — "How to perform Thila Homam" — triggers rich results & AI citations ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -339,7 +333,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 7: ItemList of Services — helps AI engines enumerate offerings ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -445,7 +438,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 8: SpeakableSpecification — for Google Assistant & voice AI ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -470,7 +462,6 @@
 }
 </script>
 
-<!-- ════ SCHEMA 9: Event — for upcoming Amavasai ceremony dates ════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -516,29 +507,29 @@
 ===================================================== */
 :root {
   /* Brand palette — extracted from logo */
-  --crimson:     #B8001E;
-  --crimson-h:   #D4002A;
-  --crimson-l:   #E8294A;
+  --crimson:      #B8001E;
+  --crimson-h:    #D4002A;
+  --crimson-l:    #E8294A;
   --crimson-pale:#FFF2F4;
   --crimson-mist:#FCDDE2;
   --crimson-soft:#F5B8C4;
-  --flame:       #D4740A;
-  --flame-h:     #E8890E;
-  --flame-pale:  #FFF6E8;
-  --gold:        #C9971A;
+  --flame:        #D4740A;
+  --flame-h:      #E8890E;
+  --flame-pale:   #FFF6E8;
+  --gold:         #C9971A;
 
   /* Neutrals — warm undertone */
-  --white:       #FFFFFF;
-  --cream:       #FFFCF8;
-  --linen:       #FBF6EF;
-  --linen-2:     #F5EDE2;
-  --linen-3:     #EDE0D2;
+  --white:        #FFFFFF;
+  --cream:        #FFFCF8;
+  --linen:        #FBF6EF;
+  --linen-2:      #F5EDE2;
+  --linen-3:      #EDE0D2;
 
   /* Text */
-  --ink:         #1A0608;
-  --ink-2:       #3C1720;
-  --ink-3:       #6B3D48;
-  --ink-4:       #A07080;
+  --ink:          #1A0608;
+  --ink-2:        #3C1720;
+  --ink-3:        #6B3D48;
+  --ink-4:        #A07080;
 
   /* Borders */
   --b1: rgba(184,0,30,0.10);
@@ -695,7 +686,7 @@ button { font-family: var(--sans); cursor: pointer; }
 .btn--lg { padding: 16px 36px; font-size: 1rem; }
 
 /* =====================================================
-   NAVIGATION
+   NAVIGATION (Updated to meet exact layout rules)
 ===================================================== */
 .nav {
   position: fixed;
@@ -704,7 +695,7 @@ button { font-family: var(--sans); cursor: pointer; }
   height: 68px;
   display: flex;
   align-items: center;
-  padding: 0 5%;
+  padding: 0 32px;
   transition: background .25s var(--ease), box-shadow .25s var(--ease);
 }
 .nav.is-scrolled {
@@ -713,8 +704,15 @@ button { font-family: var(--sans); cursor: pointer; }
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--b1), 0 4px 16px rgba(26,6,8,.05);
 }
-.nav__inner { width: 100%; display: flex; align-items: center; justify-content: space-between; }
-.nav__brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav__inner { 
+  width: 100%; 
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+}
+.nav__brand { display: flex; align-items: center; gap: 11px; text-decoration: none; flex-shrink: 0; }
 .nav__logo { height: 42px; width: auto; }
 .nav__brand-text { display: flex; flex-direction: column; }
 .nav__name {
@@ -734,7 +732,16 @@ button { font-family: var(--sans); cursor: pointer; }
   color: var(--ink-4);
   margin-top: 1px;
 }
-.nav__links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+.nav__links { 
+  display: flex; 
+  align-items: center; 
+  gap: 2.25rem; 
+  list-style: none; 
+}
+.nav__right-cta {
+  display: block;
+  flex-shrink: 0;
+}
 .nav__links a {
   font-size: 0.875rem;
   font-weight: 500;
@@ -1123,7 +1130,7 @@ button { font-family: var(--sans); cursor: pointer; }
   margin-bottom: 4px;
 }
 .day-card__desc { font-size: 0.8125rem; color: var(--ink-4); line-height: 1.5; }
-.why-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+why-items { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
 .why-item {
   display: flex;
   gap: 14px;
@@ -1219,7 +1226,7 @@ button { font-family: var(--sans); cursor: pointer; }
   position: relative;
   overflow: hidden;
 }
-.epuja-banner::before {
+.epuja-banner__inner-glow {
   content: 'ॐ';
   position: absolute;
   right: 280px; top: 50%;
@@ -1320,7 +1327,7 @@ details[open] .faq__icon {
 }
 
 /* =====================================================
-   CONTACT
+   CONTACT & FORM VALIDATION STYLES
 ===================================================== */
 .contact__grid {
   display: grid;
@@ -1393,7 +1400,7 @@ details[open] .faq__icon {
   flex-shrink: 0;
   margin-top: 1px;
 }
-/* Contact Form */
+/* Contact Form Styles */
 .contact-form {
   background: var(--white);
   border: 1px solid var(--b1);
@@ -1414,7 +1421,7 @@ details[open] .faq__icon {
   margin-bottom: 1.75rem;
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.125rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.125rem; position: relative; }
 .form-label {
   font-size: 0.8125rem;
   font-weight: 600;
@@ -1441,6 +1448,17 @@ details[open] .faq__icon {
   border-color: var(--crimson);
   background: var(--white);
   box-shadow: 0 0 0 3px rgba(184,0,30,.08);
+}
+.form-input.has-error {
+  border-color: var(--crimson);
+  background: var(--crimson-pale);
+}
+.error-text {
+  font-size: 0.75rem;
+  color: var(--crimson);
+  font-weight: 600;
+  margin-top: 2px;
+  display: block;
 }
 .form-input::placeholder,
 .form-textarea::placeholder { color: var(--ink-4); }
@@ -1582,8 +1600,24 @@ details[open] .faq__icon {
 .reveal.visible { opacity: 1; transform: none; }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE & DESKTOP STYLING RULES
 ===================================================== */
+@media (min-width: 861px) {
+  .nav__inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+  }
+  .nav__links {
+    justify-content: center;
+    width: 100%;
+  }
+  .nav__right-cta {
+    display: block;
+  }
+}
+
 @media (max-width: 1080px) {
   .services__grid { grid-template-columns: 1fr 1fr; }
   .testi__grid { grid-template-columns: 1fr 1fr; }
@@ -1598,6 +1632,7 @@ details[open] .faq__icon {
   .epuja-banner { grid-template-columns: 1fr; }
   .epuja-banner__btns { flex-direction: row; }
   .epuja-banner::before { display: none; }
+  .nav__right-cta { display: none; }
 }
 @media (max-width: 640px) {
   .nav__links { display: none; }
@@ -1634,7 +1669,6 @@ details[open] .faq__icon {
 </head>
 <body>
 
-<!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav__inner">
     <a href="/" class="nav__brand" aria-label="Thila Homam Rameswaram — Home">
@@ -1644,21 +1678,25 @@ details[open] .faq__icon {
         <span class="nav__sub">Rameswaram</span>
       </div>
     </a>
+    
     <ul class="nav__links" id="navLinks" role="list">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Rameswaram</a></li>
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact" class="btn btn--crimson btn--sm">Book Homam</a></li>
     </ul>
+
+    <div class="nav__right-cta">
+      <a href="#contact" class="btn btn--crimson btn--sm">Book Homam</a>
+    </div>
+
     <button class="nav__ham" id="navHam" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- ═══════════ HERO ═══════════ -->
 <header class="hero" id="home">
   <div class="hero__left">
     <div class="hero__badge">
@@ -1701,7 +1739,6 @@ details[open] .faq__icon {
   </div>
 </header>
 
-<!-- ═══════════ PAIN BAND ═══════════ -->
 <div class="pain-band" role="complementary" aria-label="Symptoms of Pitru Dosha">
   <div class="pain-band__inner">
     <p class="pain-band__label">Are you experiencing these symptoms of Pitru Dosha?</p>
@@ -1716,7 +1753,6 @@ details[open] .faq__icon {
   </div>
 </div>
 
-<!-- ═══════════ ABOUT ═══════════ -->
 <section class="section" id="about" aria-label="About Manoj Shastrigal">
   <div class="container">
     <div class="about__grid">
@@ -1736,7 +1772,7 @@ details[open] .faq__icon {
         <div class="about__priest-card" itemscope itemtype="https://schema.org/Person">
           <div>
             <div class="about__priest-name" itemprop="name">Manoj Shastrigal</div>
-            <div class="about__priest-role" itemprop="jobTitle">Vedic Priest &amp; Ritual Specialist · Rameswaram, Tamil Nadu</div>
+            <div class="about__priest-role" itemprop="jobTitle">Vedic Priest & Ritual Specialist · Rameswaram, Tamil Nadu</div>
           </div>
         </div>
         <ul class="about__list">
@@ -1771,7 +1807,6 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ SERVICES ═══════════ -->
 <section class="section section--linen" id="services" aria-label="Vedic ritual services">
   <div class="container">
     <div class="hdr reveal">
@@ -1808,7 +1843,7 @@ details[open] .faq__icon {
         <span class="service-card__link">Learn more →</span>
       </a>
       <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-        <div class="service-card__icon" aria-hidden="true">🌿</div>
+        <div class="service-card__icon" aria-hidden="true"></div>
         <h3 class="service-card__title" itemprop="name">Hiranya Shrardham</h3>
         <p class="service-card__desc" itemprop="description">Annual ceremony to honour and propitiate beloved ancestors, maintaining a healthy spiritual connection across generations.</p>
       </div>
@@ -1836,7 +1871,6 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ DAYS + WHY RAMESWARAM ═══════════ -->
 <section class="section" id="why" aria-label="Auspicious days and Why Rameswaram">
   <div class="container">
     <div class="days-why__grid">
@@ -1903,7 +1937,6 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ TESTIMONIALS ═══════════ -->
 <section class="section section--mist" id="testimonials" aria-label="Customer testimonials">
   <div class="container">
     <div class="hdr reveal">
@@ -1983,10 +2016,10 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ E-PUJA BANNER ═══════════ -->
 <section class="section section--linen" aria-label="E-Puja online service">
   <div class="container">
     <div class="epuja-banner reveal">
+      <div class="epuja-banner__inner-glow"></div>
       <div>
         <h2 class="epuja-banner__title">Can't Travel to Rameswaram?<br>E-Puja From Anywhere in India</h2>
         <p class="epuja-banner__text">
@@ -2001,7 +2034,6 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ FAQ ═══════════ -->
 <section class="section" id="faq" aria-label="Frequently asked questions">
   <div class="container">
     <div class="faq__layout">
@@ -2053,11 +2085,10 @@ details[open] .faq__icon {
   </div>
 </section>
 
-<!-- ═══════════ CONTACT ═══════════ -->
 <section class="section section--linen2" id="contact" aria-label="Contact and booking">
   <div class="container">
     <div class="hdr reveal">
-      <div class="eyebrow">Contact &amp; Booking</div>
+      <div class="eyebrow">Contact & Booking</div>
       <h2 class="t-display t-display--lg">Book Your Thila Homam Today</h2>
     </div>
     <div class="contact__grid">
@@ -2077,7 +2108,7 @@ details[open] .faq__icon {
         <div class="contact__item">
           <div class="contact__icon" aria-hidden="true">📞</div>
           <div>
-            <div class="contact__label">Phone &amp; WhatsApp</div>
+            <div class="contact__label">Phone & WhatsApp</div>
             <div class="contact__value"><a href="tel:+916382173482">+91 6382173482</a></div>
           </div>
         </div>
@@ -2092,7 +2123,7 @@ details[open] .faq__icon {
           <div class="contact__icon" aria-hidden="true">🕐</div>
           <div>
             <div class="contact__label">Available On</div>
-            <div class="contact__value">All Saturdays, Amavasai,<br>Ashtamis &amp; Shani Dhishai</div>
+            <div class="contact__value">All Saturdays, Amavasai,<br>Ashtamis & Shani Dhishai</div>
           </div>
         </div>
         <div class="trust-panel">
@@ -2111,12 +2142,12 @@ details[open] .faq__icon {
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="f-name">Your Name *</label>
-            <input class="form-input" type="text" id="f-name" placeholder="Full name" required autocomplete="name">
-          </div>
+            <input class="form-input" type="text" id="f-name" placeholder="Full name" autocomplete="name">
+            </div>
           <div class="form-group">
             <label class="form-label" for="f-phone">Phone / WhatsApp *</label>
-            <input class="form-input" type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
-          </div>
+            <input class="form-input" type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+            </div>
         </div>
         <div class="form-group">
           <label class="form-label" for="f-service">Service Required</label>
@@ -2140,13 +2171,12 @@ details[open] .faq__icon {
           <textarea class="form-textarea" id="f-msg" placeholder="Your preferred date, number of family members, or any specific requirements..."></textarea>
         </div>
         <button class="form-submit" onclick="handleSubmit(event)">Submit Enquiry via WhatsApp</button>
-        <p class="form-note">Or call directly: <a href="tel:+916382173482">+91 6382173482</a> &mdash; Free consultation available</p>
+        <p class="form-note">Or call directly: <a href="tel:+916382173482">+91 6382173482</a> — Free consultation available</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="footer" role="contentinfo">
   <div class="footer__grid">
     <div>
@@ -2191,7 +2221,7 @@ details[open] .faq__icon {
   </div>
   <div class="footer__bottom">
     <p class="footer__copy">
-      &copy; 2025 Rameshwar Yatra. All rights reserved. &nbsp;&middot;&nbsp; 14/D Eswari Amman Temple Street, Rameswaram, Tamil Nadu 623526
+      © 2025 Rameshwar Yatra. All rights reserved.  ·  14/D Eswari Amman Temple Street, Rameswaram, Tamil Nadu 623526
     </p>
     <div class="footer__legal">
       <a href="https://thilahomamrameshwaram.org/privacy-policy.php">Privacy Policy</a>
@@ -2199,12 +2229,10 @@ details[open] .faq__icon {
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
 <a href="https://wa.me/6382173482" class="wa-float" aria-label="Chat with us on WhatsApp" rel="noopener noreferrer">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4 4 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 5.705z"/></svg>
 </a>
 
-<!-- Sticky Mobile CTA -->
 <div class="sticky-cta" id="stickyCta" role="complementary" aria-label="Quick contact">
   <a href="tel:+916382173482" style="background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;gap:7px">📞 Call Now</a>
   <a href="https://wa.me/6382173482" style="background:#22C55E;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px">💬 WhatsApp</a>
@@ -2234,14 +2262,45 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.09, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Form → WhatsApp
+// Form → WhatsApp with Dynamic Validation Errors
 function handleSubmit(e) {
   e.preventDefault();
-  const name  = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
+  
+  const nameInput = document.getElementById('f-name');
+  const phoneInput = document.getElementById('f-phone');
+  
+  const name  = nameInput.value.trim();
+  const phone = phoneInput.value.trim();
   const svc   = document.getElementById('f-service').value;
   const msg   = document.getElementById('f-msg').value.trim();
-  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  
+  // Clear any existing errors first
+  document.querySelectorAll('.error-text').forEach(el => el.remove());
+  nameInput.classList.remove('has-error');
+  phoneInput.classList.remove('has-error');
+  
+  let isValid = true;
+  
+  if (!name) {
+    nameInput.classList.add('has-error');
+    const nameErr = document.createElement('span');
+    nameErr.className = 'error-text';
+    nameErr.innerText = 'Name is a required field.';
+    nameInput.parentNode.appendChild(nameErr);
+    isValid = false;
+  }
+  
+  if (!phone) {
+    phoneInput.classList.add('has-error');
+    const phoneErr = document.createElement('span');
+    phoneErr.className = 'error-text';
+    phoneErr.innerText = 'Phone number is a required field.';
+    phoneInput.parentNode.appendChild(phoneErr);
+    isValid = false;
+  }
+  
+  if (!isValid) return; // Halt compilation if validations fail
+  
   const text =
     'Namaste Manoj ji \uD83D\uDE4F\n\n' +
     'Enquiry: *' + (svc || 'Thila Homam') + '*\n' +
