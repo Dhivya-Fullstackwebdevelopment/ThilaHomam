@@ -1072,11 +1072,13 @@
     }
 
     @keyframes pulse {
+
       0%,
       100% {
         opacity: 1;
         transform: scale(1)
       }
+
       50% {
         opacity: .35;
         transform: scale(.55)
@@ -1179,9 +1181,10 @@
     }
 
     .pain-chip {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 16px;
+      padding: 20px;
       background: rgba(255, 255, 255, .12);
       border: 1px solid rgba(255, 255, 255, .25);
       border-radius: 99px;
@@ -1195,6 +1198,23 @@
     .pain-chip:hover {
       background: rgba(255, 255, 255, .22);
       border-color: rgba(255, 255, 255, .5);
+    }
+
+    .pain-chip img,
+    .pain-chip svg {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+
+      .pain-chip img,
+      .pain-chip svg {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     .about__grid {
@@ -1361,8 +1381,8 @@
     }
 
     .service-card__icon {
-      width: 48px;
-      height: 48px;
+      width: 35px;
+      height: 35px;
       background: var(--crimson-pale);
       border-radius: var(--r-md);
       display: flex;
@@ -1442,7 +1462,7 @@
       background: var(--white);
       border: 1px solid var(--b1);
       border-radius: var(--r-md);
-      padding: 1.5rem 1.25rem;
+      padding: 1rem;
       text-align: center;
       transition: box-shadow .2s, transform .2s;
     }
@@ -1453,16 +1473,29 @@
     }
 
     .day-card__icon {
-      font-size: 1.875rem;
-      margin-bottom: 0.625rem;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .day-card__title {
       font-family: var(--serif);
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--ink);
       margin-bottom: 4px;
+    }
+
+    .day-card__icon img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .why-item__icon img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
     }
 
     .day-card__desc {
@@ -2082,6 +2115,7 @@
       height: 30px;
       fill: #fff;
     }
+
     /* =====================================================
    MOBILE STICKY CTA
 ===================================================== */
@@ -2133,10 +2167,12 @@
         align-items: center;
         width: 100%;
       }
+
       .nav__links {
         justify-content: center;
         width: 100%;
       }
+
       .nav__right-cta {
         display: block;
       }
@@ -2146,9 +2182,11 @@
       .services__grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .testi__grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .footer__grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -2159,12 +2197,15 @@
         grid-template-columns: 1fr;
         min-height: auto;
       }
+
       .hero__left {
         padding: 108px 5% 72px;
       }
+
       .hero__right {
         display: none;
       }
+
       .about__grid,
       .days-why__grid,
       .faq__layout,
@@ -2172,67 +2213,86 @@
         grid-template-columns: 1fr;
         gap: 3rem;
       }
+
       .faq__sticky {
         position: static;
       }
+
       .epuja-banner {
         grid-template-columns: 1fr;
       }
+
       .epuja-banner__btns {
         flex-direction: row;
       }
+
       .epuja-banner::before {
         display: none;
       }
+
       .nav__right-cta {
         display: none;
       }
+
       .nav__links {
         display: none;
       }
+
       .nav__ham {
         display: flex;
       }
     }
 
     @media (max-width: 640px) {
+
       .services__grid,
       .testi__grid,
       .days-grid {
         grid-template-columns: 1fr;
       }
+
       .form-row {
         grid-template-columns: 1fr;
       }
+
       .footer__grid {
         grid-template-columns: 1fr;
       }
+
       .hero__ctas {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .hero__stats {
         gap: 0;
       }
+
       .stat {
         padding: 0 1.25rem;
       }
+
       .wa-float {
         bottom: 24px;
       }
+
       .section {
         padding: 64px 0;
       }
+
       .epuja-banner {
         padding: 2.25rem 1.75rem;
       }
+
       .epuja-banner__btns {
         flex-direction: column;
       }
+
       .about__badge {
         bottom: -14px;
         right: -8px;
       }
+
       .contact-form {
         padding: 1.75rem;
       }
@@ -2275,7 +2335,8 @@
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar__header">
       <a href="/" class="nav__brand">
-        <img class="nav__logo" src="https://thilahomamrameshwaram.org/assets/img/logo.png" alt="Rameshwar Yatra logo" onerror="this.style.display='none'">
+        <img class="nav__logo" src="https://thilahomamrameshwaram.org/assets/img/logo.png" alt="Rameshwar Yatra logo"
+          onerror="this.style.display='none'">
         <div class="nav__brand-text">
           <span class="nav__name">Thila Homam</span>
           <span class="nav__sub">Rameswaram</span>
@@ -2347,12 +2408,18 @@
     <div class="pain-band__inner">
       <p class="pain-band__label">Are you experiencing these symptoms of Pitru Dosha?</p>
       <div class="pain-band__chips">
-        <div class="pain-chip"><span aria-hidden="true">  <img src="assests/icons/ring.png" alt="Ring" class="pain-icon"></span> Delay in marriage</div>
-        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/career-path.png" alt="Ring" class="pain-icon"></span> Career or job issues</div>
-        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/family.png" alt="Ring" class="pain-icon"></span> Family disunity</div>
-        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/delay.png" alt="Ring" class="pain-icon"></span> Delay in child birth</div>
-        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/financial.png" alt="Ring" class="pain-icon"></span> Financial struggles</div>
-        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/healthissues.png" alt="Ring" class="pain-icon"></span> Unexplained health issues</div>
+        <div class="pain-chip"><span aria-hidden="true"> <img src="assests/icons/ring.png" alt="Ring"
+              class="pain-icon"></span> Delay in marriage</div>
+        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/career-path.png" alt="Ring"
+              class="pain-icon"></span> Career or job issues</div>
+        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/family.png" alt="Ring"
+              class="pain-icon"></span> Family disunity</div>
+        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/delay.png" alt="Ring"
+              class="pain-icon"></span> Delay in child birth</div>
+        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/financial.png" alt="Ring"
+              class="pain-icon"></span> Financial struggles</div>
+        <div class="pain-chip"><span aria-hidden="true"><img src="assests/icons/healthissues.png" alt="Ring"
+              class="pain-icon"></span> Unexplained health issues</div>
       </div>
     </div>
   </div>
@@ -2379,7 +2446,8 @@
           <div class="about__priest-card" itemscope itemtype="https://schema.org/Person">
             <div>
               <div class="about__priest-name" itemprop="name">Manoj Shastrigal</div>
-              <div class="about__priest-role" itemprop="jobTitle">Vedic Priest & Ritual Specialist · Rameswaram, Tamil Nadu</div>
+              <div class="about__priest-role" itemprop="jobTitle">Vedic Priest & Ritual Specialist · Rameswaram, Tamil
+                Nadu</div>
             </div>
           </div>
           <ul class="about__list">
@@ -2428,7 +2496,8 @@
         <a href="https://thilahomamrameshwaram.org/Thilahomam.php" class="service-card service-card--featured reveal"
           itemscope itemtype="https://schema.org/Service">
           <span class="service-card__badge">Most Booked</span>
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/thilahomam.png" alt="Thila Homam" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/thilahomam.png" alt="Thila Homam"
+              class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Thila Homam</h3>
           <p class="service-card__desc" itemprop="description">Vedic fire ritual offering sesame seeds to appease
             ancestors, remove Pitru Dosha, and receive divine blessings for prosperity and lasting family harmony.</p>
@@ -2436,7 +2505,8 @@
         </a>
         <a href="https://thilahomamrameshwaram.org/Thithi.php" class="service-card reveal" itemscope
           itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/thithi.png" alt="Thithi Ceremony" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/thithi.png" alt="Thithi Ceremony"
+              class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Thithi Ceremony</h3>
           <p class="service-card__desc" itemprop="description">Ritual food offerings (pindams) to honour departed
             ancestors in Pitruloka, seeking blessings for family unity, health, and harmony.</p>
@@ -2444,7 +2514,8 @@
         </a>
         <a href="https://thilahomamrameshwaram.org/sarpashanthi-pooja.php" class="service-card reveal" itemscope
           itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/sarpham.png" alt="Sarpashanthi Pooja" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/sarpham.png"
+              alt="Sarpashanthi Pooja" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Sarpashanthi Pooja</h3>
           <p class="service-card__desc" itemprop="description">Sacred ritual for relief from Naga Dosha — seeking
             protection from the harmful effects of serpents through Vedic ceremony.</p>
@@ -2452,38 +2523,44 @@
         </a>
         <a href="https://thilahomamrameshwaram.org/kasi-rameshwar.php" class="service-card reveal" itemscope
           itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/kasi.png" alt="Kasi–Rameswaram Yatra" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/kasi.png"
+              alt="Kasi–Rameswaram Yatra" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Kasi–Rameswaram Yatra</h3>
           <p class="service-card__desc" itemprop="description">Sacred twin-pilgrimage ritual to cleanse sins, promote
             spiritual harmony, health, and prosperity for the whole family.</p>
           <span class="service-card__link">Learn more →</span>
         </a>
         <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/hiranya.png" alt="Hiranya Shrardham" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/hiranya.png"
+              alt="Hiranya Shrardham" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Hiranya Shrardham</h3>
           <p class="service-card__desc" itemprop="description">Annual ceremony to honour and propitiate beloved
             ancestors, maintaining a healthy spiritual connection across generations.</p>
         </div>
         <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/swayamvara.png" alt="Swayamvara Kalaparvathi" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/swayamvara.png"
+              alt="Swayamvara Kalaparvathi" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Swayamvara Kalaparvathi</h3>
           <p class="service-card__desc" itemprop="description">Clears misunderstandings, strengthens relationships, and
             removes obstacles in marriage for couples seeking harmony.</p>
         </div>
         <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Nagaprathishta.png" alt="Nagaprathishta" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Nagaprathishta.png"
+              alt="Nagaprathishta" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Nagaprathishta</h3>
           <p class="service-card__desc" itemprop="description">Removes obstacles arising from Naga Dosha through rituals
             performed on Naga stone with sacred mantras and devotion.</p>
         </div>
         <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Asthi.png" alt="Asthi Visarjanam" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Asthi.png" alt="Asthi Visarjanam"
+              class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Asthi Visarjanam</h3>
           <p class="service-card__desc" itemprop="description">Ashes immersed into Dhanushkodi's sacred waters with
             complete Vedic poojas performed for the departed soul's liberation.</p>
         </div>
         <div class="service-card reveal" itemscope itemtype="https://schema.org/Service">
-          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Santhanagopalahomam.png" alt="Santhana Gopala Homam" class="pain-icon"></div>
+          <div class="service-card__icon" aria-hidden="true"><img src="assests/icons/Santhanagopalahomam.png"
+              alt="Santhana Gopala Homam" class="pain-icon"></div>
           <h3 class="service-card__title" itemprop="name">Santhana Gopala Homam</h3>
           <p class="service-card__desc" itemprop="description">Seek Lord Krishna's blessings for a healthy,
             knowledgeable child through this devotional and deeply meaningful homam.</p>
@@ -2504,22 +2581,26 @@
           </p>
           <div class="days-grid">
             <div class="day-card reveal">
-              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/amavasai.png" alt="Ring" class="pain-icon"></div>
+              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/amavasai.png" alt="Ring"
+                  class="pain-icon"></div>
               <div class="day-card__title">Amavasai</div>
               <p class="day-card__desc">New moon — most powerful day for pitru rituals</p>
             </div>
             <div class="day-card reveal">
-              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/allsaturdays.png" alt="Saturday" class="pain-icon"></div>
+              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/allsaturdays.png" alt="Saturday"
+                  class="pain-icon"></div>
               <div class="day-card__title">All Saturdays</div>
               <p class="day-card__desc">Saturn's day — auspicious for ancestral rites</p>
             </div>
             <div class="day-card reveal">
-              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/ashtami.png" alt="Ashtami" class="pain-icon"></div>
+              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/ashtami.png" alt="Ashtami"
+                  class="pain-icon"></div>
               <div class="day-card__title">Ashtami</div>
               <p class="day-card__desc">8th lunar day — significant for sacred homams</p>
             </div>
             <div class="day-card reveal">
-              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/shani.png" alt="Shani Dhishai" class="pain-icon"></div>
+              <div class="day-card__icon" aria-hidden="true"><img src="assests/icons/shani.png" alt="Shani Dhishai"
+                  class="pain-icon"></div>
               <div class="day-card__title">Shani Dhishai</div>
               <p class="day-card__desc">Saturn transit — ideal for dosha removal</p>
             </div>
@@ -2534,7 +2615,8 @@
           </p>
           <div class="why-items">
             <div class="why-item reveal">
-              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Asthi.png" alt="Sethu Tirtha" class="pain-icon"></div>
+              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Asthi.png" alt="Sethu Tirtha"
+                  class="pain-icon"></div>
               <div>
                 <p class="why-item__title">Sethu Tirtha — Sacred Waters</p>
                 <p class="why-item__text">The Sethu waters at Rameswaram are uniquely powerful for pitru karma.
@@ -2542,7 +2624,8 @@
               </div>
             </div>
             <div class="why-item reveal">
-              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Ramanathaswamy.png" alt="Ramanathaswamy Jyotirlinga" class="pain-icon"></div>
+              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Ramanathaswamy.png"
+                  alt="Ramanathaswamy Jyotirlinga" class="pain-icon"></div>
               <div>
                 <p class="why-item__title">Ramanathaswamy Jyotirlinga</p>
                 <p class="why-item__text">One of 12 Jyotirlinga sites — Lord Shiva's presence sanctifies all rituals
@@ -2550,7 +2633,8 @@
               </div>
             </div>
             <div class="why-item reveal">
-              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Scriptural.png" alt="Scriptural Authority" class="pain-icon"></div>
+              <div class="why-item__icon" aria-hidden="true"><img src="assests/icons/Scriptural.png"
+                  alt="Scriptural Authority" class="pain-icon"></div>
               <div>
                 <p class="why-item__title">Scriptural Authority</p>
                 <p class="why-item__text">The Skanda Purana and Ramayana specifically cite Rameswaram as the ideal
