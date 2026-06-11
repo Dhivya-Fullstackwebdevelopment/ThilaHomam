@@ -90,8 +90,8 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sarpashanthi Pooja", "description": "Naga Dosha relief through sacred Vedic ritual." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kasi-Rameswaram Yatra", "description": "Twin-pilgrimage ritual for sin cleansing and spiritual harmony." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Puja Service", "description": "Online Thila Homam with live video participation from anywhere in India." } }
-    ]
-  },
+    }
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
@@ -588,6 +588,10 @@
       overflow-x: hidden;
     }
 
+    body.menu-open {
+      overflow: hidden;
+    }
+
     img {
       max-width: 100%;
       display: block;
@@ -902,6 +906,94 @@
       background: var(--ink);
       border-radius: 2px;
       transition: .25s var(--ease);
+    }
+
+    /* Sidebar drawer dashboard styles */
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 6, 8, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease);
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--cream);
+      border-left: 1px solid var(--b2);
+      z-index: 9999;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-sidebar.active {
+      right: 0;
+    }
+
+    .mobile-sidebar__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--b1);
+    }
+
+    .mobile-sidebar__close {
+      background: none;
+      border: none;
+      color: var(--ink);
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .mobile-sidebar__links {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 32px;
+    }
+
+    .mobile-sidebar__links li {
+      margin: 20px 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--b1);
+      text-align: center;
+    }
+
+    .mobile-sidebar__links a {
+      color: var(--ink-2);
+      font-size: 1.125rem;
+      font-weight: 600;
+      transition: color 0.15s var(--ease);
+    }
+
+    .mobile-sidebar__links a:hover {
+      color: var(--crimson);
+    }
+
+    .mobile-sidebar__cta {
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
     }
 
     /* =====================================================
@@ -1379,7 +1471,7 @@
       line-height: 1.5;
     }
 
-    why-items {
+    .why-items {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -1997,7 +2089,8 @@
       display: none;
       position: fixed;
       bottom: 0;
-      inset-x: 0;
+      left: 0;
+      right: 0;
       z-index: 400;
       background: var(--white);
       border-top: 1px solid var(--b2);
@@ -2094,32 +2187,15 @@
       .nav__right-cta {
         display: none;
       }
-    }
-
-    @media (max-width: 640px) {
       .nav__links {
         display: none;
-      }
-      .nav__links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 68px;
-        inset-x: 0;
-        background: var(--white);
-        padding: 1.5rem 5%;
-        border-bottom: 1px solid var(--b2);
-        gap: 0;
-        z-index: 490;
-        box-shadow: 0 8px 24px rgba(26, 6, 8, .08);
-      }
-      .nav__links.open li {
-        border-bottom: 1px solid var(--b1);
-        padding: .875rem 0;
       }
       .nav__ham {
         display: flex;
       }
+    }
+
+    @media (max-width: 640px) {
       .services__grid,
       .testi__grid,
       .days-grid {
@@ -2194,6 +2270,30 @@
       </button>
     </div>
   </nav>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-sidebar__header">
+      <a href="/" class="nav__brand">
+        <img class="nav__logo" src="https://thilahomamrameshwaram.org/assets/img/logo.png" alt="Rameshwar Yatra logo" onerror="this.style.display='none'">
+        <div class="nav__brand-text">
+          <span class="nav__name">Thila Homam</span>
+          <span class="nav__sub">Rameswaram</span>
+        </div>
+      </a>
+      <button class="mobile-sidebar__close" id="closeSidebar" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-sidebar__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Rameswaram</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="mobile-sidebar__cta">
+      <a href="#contact" class="btn btn--crimson" style="width: 100%;">Book Homam</a>
+    </div>
+  </div>
 
   <header class="hero" id="home">
     <div class="hero__left">
@@ -2826,14 +2926,30 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Hamburger
+    // Side dashboard dynamic sliding controller logic integration
     const ham = document.getElementById('navHam');
-    const links = document.getElementById('navLinks');
-    ham.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      ham.setAttribute('aria-expanded', String(open));
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    const openDrawer = () => {
+      mobileSidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+      ham.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeDrawer = () => {
+      mobileSidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      ham.setAttribute('aria-expanded', 'false');
+    };
+
+    ham.addEventListener('click', openDrawer);
+    closeSidebar.addEventListener('click', closeDrawer);
+    sidebarOverlay.addEventListener('click', closeDrawer);
+    mobileSidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
     // Scroll reveal
     const obs = new IntersectionObserver(entries => {
