@@ -1081,7 +1081,7 @@
         transform: scale(1)
       }
 
-      50% {
+      55% {
         opacity: .35;
         transform: scale(.55)
       }
@@ -1360,17 +1360,6 @@
       border-color: var(--b2);
     }
 
-    .service-card--featured {
-      background: var(--crimson);
-      border-color: var(--crimson);
-    }
-
-    .service-card--featured:hover {
-      background: var(--crimson-h);
-      border-color: var(--crimson-h);
-      box-shadow: var(--s3);
-    }
-
     .service-card__badge {
       display: inline-block;
       font-size: 0.5625rem;
@@ -1547,12 +1536,31 @@
     }
 
     /* =====================================================
-    TESTIMONIALS
+    TESTIMONIALS ENDLESS SMOOTH MARQUEE SLIDER STYLES
 ===================================================== */
+    .slider-section-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 0;
+      /* Mask edges smoothly */
+      mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    }
+
     .testi__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 1.5rem;
+      width: max-content;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      animation: continuousMarquee 35s linear infinite;
+    }
+
+    /* Pause animation on interaction workspace */
+    .slider-section-container:hover .testi__grid {
+      animation-play-state: paused;
     }
 
     .testi-card {
@@ -1562,12 +1570,9 @@
       padding: 1.875rem;
       display: flex;
       flex-direction: column;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .testi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--s2);
+      width: 350px; /* Precise absolute rendering frame spacing */
+      flex-shrink: 0;
+      box-shadow: var(--s1);
     }
 
     .testi-card__stars {
@@ -1622,6 +1627,16 @@
       font-size: 0.85rem;
       color: var(--ink-4);
       margin-top: 2px;
+    }
+
+    /* Endless loop translation architecture keyframes */
+    @keyframes continuousMarquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0); /* Dynamic break step down */
+      }
     }
 
     /* =====================================================
@@ -1814,7 +1829,7 @@
       font-size: 0.7000rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.10em;
       color: var(--ink-4);
       margin-bottom: 3px;
     }
@@ -2200,10 +2215,6 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .testi__grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .footer__grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -2263,7 +2274,6 @@
     @media (max-width: 640px) {
 
       .services__grid,
-      .testi__grid,
       .days-grid {
         grid-template-columns: 1fr;
       }
@@ -2712,83 +2722,87 @@
           experiences.
         </p>
       </div>
-      <div class="testi__grid">
-        <article class="testi-card reveal" itemscope itemtype="https://schema.org/Review">
-          <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote class="testi-card__quote" itemprop="reviewBody">
-            "Manoj Shastrigal took complete responsibility and guided us from start to end. He helped with stay, temple
-            visits — everything. My family is completely satisfied. I highly recommend him for all poojas and homams."
-          </blockquote>
-          <div class="testi-card__author">
-            <div class="testi-card__avatar" aria-hidden="true">SK</div>
-            <div>
-              <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
-                  itemprop="name">Siva Kumar B</span></div>
-              <div class="testi-card__location">Chennai, Tamil Nadu</div>
+      
+      <div class="slider-section-container">
+        <div class="testi__grid" id="testimonialSlider">
+          <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testi-card__quote" itemprop="reviewBody">
+              "Manoj Shastrigal took complete responsibility and guided us from start to end. He helped with stay, temple
+              visits — everything. My family is completely satisfied. I highly recommend him for all poojas and homams."
+            </blockquote>
+            <div class="testi-card__author">
+              <div class="testi-card__avatar" aria-hidden="true">SK</div>
+              <div>
+                <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">Siva Kumar B</span></div>
+                <div class="testi-card__location">Chennai, Tamil Nadu</div>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="testi-card reveal" itemscope itemtype="https://schema.org/Review">
-          <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote class="testi-card__quote" itemprop="reviewBody">
-            "Homam was performed with my fullest satisfaction. Every step with its meaning was explained without being
-            asked. Complete guidance was given throughout the ceremony. Thank you Manoj ji."
-          </blockquote>
-          <div class="testi-card__author">
-            <div class="testi-card__avatar" aria-hidden="true">MG</div>
-            <div>
-              <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
-                  itemprop="name">Maximus G</span></div>
-              <div class="testi-card__location">Bangalore, Karnataka</div>
+          </article>
+          <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testi-card__quote" itemprop="reviewBody">
+              "Homam was performed with my fullest satisfaction. Every step with its meaning was explained without being
+              asked. Complete guidance was given throughout the ceremony. Thank you Manoj ji."
+            </blockquote>
+            <div class="testi-card__author">
+              <div class="testi-card__avatar" aria-hidden="true">MG</div>
+              <div>
+                <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">Maximus G</span></div>
+                <div class="testi-card__location">Bangalore, Karnataka</div>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="testi-card reveal" itemscope itemtype="https://schema.org/Review">
-          <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote class="testi-card__quote" itemprop="reviewBody">
-            "Very short notice and they arranged everything perfectly. Right from the first call till I reached home,
-            everything was well-coordinated. Young scholars with {} knowledge — a feast to ears and eyes."
-          </blockquote>
-          <div class="testi-card__author">
-            <div class="testi-card__avatar" aria-hidden="true">SS</div>
-            <div>
-              <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
-                  itemprop="name">Shyam Sundara Narayanan</span></div>
-              <div class="testi-card__location">Mumbai, Maharashtra</div>
+          </article>
+          <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testi-card__quote" itemprop="reviewBody">
+              "Very short notice and they arranged everything perfectly. Right from the first call till I reached home,
+              everything was well-coordinated. Young scholars with {} knowledge — a feast to ears and eyes."
+            </blockquote>
+            <div class="testi-card__author">
+              <div class="testi-card__avatar" aria-hidden="true">SS</div>
+              <div>
+                <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">Shyam Sundara Narayanan</span></div>
+                <div class="testi-card__location">Mumbai, Maharashtra</div>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="testi-card reveal" itemscope itemtype="https://schema.org/Review">
-          <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote class="testi-card__quote" itemprop="reviewBody">
-            "That day was Amavasai, everyone was busy. I requested early morning since my plan was short — at end of the
-            day everything was perfect. What they promised, they delivered. Ram Ram."
-          </blockquote>
-          <div class="testi-card__author">
-            <div class="testi-card__avatar" aria-hidden="true">VK</div>
-            <div>
-              <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
-                  itemprop="name">Vishnu Kumar</span></div>
-              <div class="testi-card__location">Hyderabad, Telangana</div>
+          </article>
+          <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testi-card__quote" itemprop="reviewBody">
+              "That day was Amavasai, everyone was busy. I requested early morning since my plan was short — at end of the
+              day everything was perfect. What they promised, they delivered. Ram Ram."
+            </blockquote>
+            <div class="testi-card__author">
+              <div class="testi-card__avatar" aria-hidden="true">VK</div>
+              <div>
+                <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">Vishnu Kumar</span></div>
+                <div class="testi-card__location">Hyderabad, Telangana</div>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="testi-card reveal" itemscope itemtype="https://schema.org/Review">
-          <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <blockquote class="testi-card__quote" itemprop="reviewBody">
-            "Absolute masters at their work! My family and I were very happy with Rameshwaryatra. Mr. Manoj ji was
-            extremely helpful. I strongly recommend this place for all poojas in Rameswaram."
-          </blockquote>
-          <div class="testi-card__author">
-            <div class="testi-card__avatar" aria-hidden="true">SS</div>
-            <div>
-              <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
-                  itemprop="name">Suresh Shan</span></div>
-              <div class="testi-card__location">Coimbatore, Tamil Nadu</div>
+          </article>
+          <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="testi-card__quote" itemprop="reviewBody">
+              "Absolute masters at their work! My family and I were very happy with Rameshwaryatra. Mr. Manoj ji was
+              extremely helpful. I strongly recommend this place for all poojas in Rameswaram."
+            </blockquote>
+            <div class="testi-card__author">
+              <div class="testi-card__avatar" aria-hidden="true">SS</div>
+              <div>
+                <div class="testi-card__name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span
+                    itemprop="name">Suresh Shan</span></div>
+                <div class="testi-card__location">Coimbatore, Tamil Nadu</div>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
+      
     </div>
   </section>
 
@@ -3258,6 +3272,14 @@
         '\n\nKindly guide me on booking and the next steps.';
 
       window.open('https://wa.me/6382173482?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    // Endless Infinite Right-to-Left Dynamic Marquee Flow Script Injection
+    const marqueeContainer = document.getElementById('testimonialSlider');
+    if (marqueeContainer) {
+      // Duplicate child content cards to achieve a seamless loop intersection reset
+      const cards = marqueeContainer.innerHTML;
+      marqueeContainer.innerHTML = cards + cards;
     }
   </script>
 </body>
