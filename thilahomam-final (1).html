@@ -2015,20 +2015,32 @@
     .footer__brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       margin-bottom: 1rem;
     }
 
     .footer__brand img {
-      height: 46px;
+      height: 70px;
       width: auto;
     }
 
     .footer__brand-name {
       font-family: var(--serif);
-      font-size: 1.125rem;
+      font-size: 1.0625rem;
       font-weight: 700;
       color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .footer__brand-sub {
+      font-family: var(--sans);
+      font-size: 0.5625rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-top: 1px;
     }
 
     .footer__desc {
@@ -3004,9 +3016,12 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <img src="https://thilahomamrameshwaram.org/assets/img/logo.png" alt="Rameshwar Yatra logo" height="46"
-            onerror="this.style.display='none'">
-          <span class="footer__brand-name">Thila Homam Rameswaram</span>
+          <img src="https://thilahomamrameshwaram.org/assets/img/logo.png" alt="Rameshwar Yatra Logo" onerror="this.style.display='none'">
+
+          <div>
+            <div class="footer__brand-name">Thila Homam</div>
+            <div class="footer__brand-sub">RAMESWARAM</div>
+          </div>
         </div>
         <p class="footer__desc">
           Authentic Vedic Thila Homam and traditional poojas conducted by Manoj Shastrigal in Rameswaram — 15+ years of
